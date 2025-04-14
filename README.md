@@ -1,5 +1,10 @@
 # 📘 Project Documentation (React + TypeScript + Vite)
 
+## 🌐 Live Demo
+
+The application is deployed on GitHub Pages:  
+👉 [https://alexandermezhenskyi.github.io/movies-app](https://alexandermezhenskyi.github.io/movies-app)
+
 ## 🚀 Getting Started
 
 To set up the project locally, follow these steps:
@@ -40,11 +45,12 @@ The `package.json` file includes several useful scripts. Run them using:
 yarn <script_name>
 ```
 
-| Script        | Description                                                                 |
-|---------------|-----------------------------------------------------------------------------|
-| `dev`         | Starts the Vite dev server with Hot Module Replacement.                    |
-| `build`       | Bundles the app for production into the `dist` folder.                     |
-| `preview`     | Serves the production build locally using a static file server.            |
-| `lint`        | Runs ESLint on `.ts` and `.tsx` files to ensure code style consistency.    |
-
+| Script        | Description                                                             |
+|---------------|-------------------------------------------------------------------------|
+| `dev`         | Starts the Vite dev server with Hot Module Replacement.                 |
+| `build`       | Bundles the app for production into the `dist` folder.                  |
+| `preview`     | Serves the production build locally using a static file server.         |
+| `lint`        | Runs ESLint on `.ts` and `.tsx` files to ensure code style consistency. |
+| `predeploy`   | Automatically runs `yarn build` before deploying to GitHub Pages.       |
+| `deploy`      | Deploys the `dist` folder to GitHub Pages using the `gh-pages` package. |
 
