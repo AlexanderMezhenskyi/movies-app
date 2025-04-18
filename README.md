@@ -20,7 +20,7 @@ To set up the project locally, follow these steps:
    ```bash
    yarn dev
    ```
-   After startup, the app will be available at the URL shown in the terminal ([http://localhost:5173/movies-app](http://localhost:5173/movies-app)).
+   After startup, the app will be available at the URL shown in the terminal ([http://localhost:5173/movies-app](http://localhost:5173/movies-app/)).
 
 3. **Build for Production**  
    Create an optimized production build:
