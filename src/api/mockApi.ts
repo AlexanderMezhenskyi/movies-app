@@ -30,7 +30,8 @@ export const fetchMovie = (id: string): Promise<Movie> => {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
       try {
-        const movie = movies[id];
+        const movie = movies.find((movie) => movie.id === id);
+
         if (movie) {
           resolve(movie);
         } else {

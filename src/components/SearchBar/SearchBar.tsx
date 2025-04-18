@@ -9,7 +9,8 @@ const SearchBar = ({ onSearch }: Props) => {
   const [searchValue, setSearchValue] = useState('');
 
   const debouncedSearch = useMemo(() => {
-    let timeoutId;
+    let timeoutId: ReturnType<typeof setTimeout>;
+
     return (value: string) => {
       clearTimeout(timeoutId);
       timeoutId = setTimeout(() => onSearch(value), 500);
