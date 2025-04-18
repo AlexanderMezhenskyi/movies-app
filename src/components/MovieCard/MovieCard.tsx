@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import FavoriteButton from 'src/components/FavoriteButton';
 import { Movie, MovieCardVariant } from 'src/types/types';
 import { formatDate } from 'src/utils/utils.ts';
 import styles from './MovieCard.module.scss';
@@ -9,8 +10,6 @@ interface MovieCardProps {
 }
 
 const MovieCard = ({ movie, variant = 'grid' }: MovieCardProps) => {
-  const isFavorite: boolean = false;
-
   return (
     <div className={styles.movieCard}>
       <Link to={`/movie/${movie.id}`} className={styles.moviePosterWrapper}>
@@ -28,9 +27,7 @@ const MovieCard = ({ movie, variant = 'grid' }: MovieCardProps) => {
           <p className={styles.movieDate}>
             {variant === 'grid' && <span>Release: </span>}{formatDate(movie.release_date)}
           </p>
-          <button className={styles.movieButton} onClick={() => {}}>
-            {isFavorite ? '💔 Remove' : '❤️ Add'}
-          </button>
+          <FavoriteButton movie={movie} />
         </div>
       </div>
     </div>

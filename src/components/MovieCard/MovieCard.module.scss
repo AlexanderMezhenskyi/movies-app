@@ -11,7 +11,7 @@
 
   &:hover {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
-    transform: scale(100.5%);
+    transform: scale(105%);
   }
 }
 
@@ -58,19 +58,4 @@
   font-size: 14px;
   color: $gray-dark;
   margin: 0 0 5px;
-}
-
-.movieButton {
-  background-color: $gray-light;
-  color: $gray-dark;
-  border: none;
-  padding: 5px 10px;
-  border-radius: 8px;
-  font-size: 14px;
-  cursor: pointer;
-  transition: background-color 0.2s ease;
-
-  &:hover {
-    background-color: $gray;
-  }
 }

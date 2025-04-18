@@ -11,6 +11,9 @@ const MovieList = ({ movies, variant = 'grid' } : MovieListProps) => {
   const listClass = variant === 'sidebar'
     ? styles.sidebarList
     : styles.movieList;
+  const noFoundText = variant === 'sidebar'
+    ? 'No favorites yet'
+    : 'No movies found';
 
   return (
     <>
@@ -21,7 +24,7 @@ const MovieList = ({ movies, variant = 'grid' } : MovieListProps) => {
           ))}
         </div>
       ) : (
-        <div className={styles.noFound}>No movies found</div>
+        <div className={styles.noFound}>{noFoundText}</div>
       )}
     </>
   );

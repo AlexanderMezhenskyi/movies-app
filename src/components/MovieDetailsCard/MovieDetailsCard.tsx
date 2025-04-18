@@ -1,4 +1,5 @@
 import { useNavigate } from 'react-router-dom';
+import FavoriteButton from 'src/components/FavoriteButton';
 import { Movie } from "src/types/types";
 import { formatDate } from "src/utils/utils.ts";
 import styles from './MovieDetailsCard.module.scss';
@@ -9,7 +10,6 @@ type Props = {
 
 const MovieDetailsCard = ({ movie }: Props) => {
   const navigate = useNavigate();
-  const isFavorite: boolean = false;
 
   if (!movie) {
     return <div className={styles.noLoad}>Could not load movie details</div>;
@@ -31,10 +31,7 @@ const MovieDetailsCard = ({ movie }: Props) => {
             <p><strong>Genres:</strong> {movie.genres.join(', ')}</p>
             <p><strong>Rating:</strong> {movie.rating}</p>
             <div className={styles.actionsWrap}>
-              <button className={styles.button} onClick={() => {
-              }}>
-                {isFavorite ? '💔 Remove from Favorites' : '❤️ Add to Favorites'}
-              </button>
+              <FavoriteButton movie={movie} expanded />
               <button className={styles.button} onClick={() => navigate(-1)}>
                 Back
               </button>
