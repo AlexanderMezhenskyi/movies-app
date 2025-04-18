@@ -4,7 +4,7 @@ import Loader from "src/components/Loader";
 import MovieDetailsCard from "src/components/MovieDetailsCard";
 import Toast from "src/components/Toast";
 import { Movie } from "src/types/types.ts";
-import { fetchMovie } from "src/api/mockApi.ts";
+import { fetchMovie } from "src/api/mockApi";
 
 const MovieDetails = () => {
   const [movie, setMovie] = useState<Movie | null>();

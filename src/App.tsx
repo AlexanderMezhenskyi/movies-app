@@ -1,11 +1,11 @@
 import { Routes, Route, useLocation } from 'react-router-dom';
-import Favorites from './pages/Favorites';
-import Header from './components/Header';
-import Home from './pages/Home';
-import MovieDetails from './pages/MovieDetails/MovieDetails.tsx';
-import Sidebar from './components/Sidebar';
-import Footer from './components/Footer';
-import { FavoritesProvider } from './context/FavoritesContext';
+import Favorites from 'src/pages/Favorites';
+import Header from 'src/components/Header';
+import Home from 'src/pages/Home';
+import MovieDetails from 'src/pages/MovieDetails/MovieDetails';
+import Sidebar from 'src/components/Sidebar';
+import Footer from 'src/components/Footer';
+import { FavoritesProvider } from 'src/context/FavoritesProvider';
 import './App.scss';
 
 const App = () => {

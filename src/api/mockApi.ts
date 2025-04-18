@@ -1,4 +1,4 @@
-import { movies } from 'src/api/mockData.ts';
+import { movies } from 'src/api/mockData';
 import { Movie } from 'src/types/types';
 
 export const fetchMovies = (query: string): Promise<Movie[]> => {
