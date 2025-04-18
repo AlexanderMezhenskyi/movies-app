@@ -3,7 +3,7 @@
 ## 🌐 Live Demo
 
 The application is deployed on GitHub Pages:  
-👉 [https://alexandermezhenskyi.github.io/movies-app](https://alexandermezhenskyi.github.io/movies-app)
+👉 [movies-app](https://alexandermezhenskyi.github.io)
 
 ## 🚀 Getting Started
 
