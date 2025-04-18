@@ -1,8 +1,24 @@
-import { useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import styles from './SearchBar.module.scss';
 
-const SearchBar = () => {
+type Props = {
+  onSearch: (query: string) => void;
+};
+
+const SearchBar = ({ onSearch }: Props) => {
   const [searchValue, setSearchValue] = useState('');
+
+  const debouncedSearch = useMemo(() => {
+    let timeoutId;
+    return (value: string) => {
+      clearTimeout(timeoutId);
+      timeoutId = setTimeout(() => onSearch(value), 500);
+    };
+  }, [onSearch]);
+
+  useEffect(() => {
+    debouncedSearch(searchValue.trim());
+  }, [searchValue, debouncedSearch]);
 
   return (
     <div className={styles.searchContainer}>
@@ -15,7 +31,6 @@ const SearchBar = () => {
           value={searchValue}
           onChange={(e) => setSearchValue(e.target.value)}
         />
-        <button className={styles.searchButton}>Search</button>
       </div>
     </div>
   );

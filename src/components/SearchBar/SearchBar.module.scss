@@ -25,7 +25,6 @@
   border-radius: $border-radius-sm;
   font-size: 16px;
   color: $text-color;
-  margin-right: 12px;
 
   &:focus {
     outline: none;
@@ -35,20 +34,5 @@
 
   &::placeholder {
     color: $gray-secondary;
-  }
-}
-
-.searchButton {
-  background-color: $primary-color;
-  color: $neutral;
-  border: none;
-  padding: 12px 24px;
-  border-radius: $border-radius-sm;
-  font-size: 16px;
-  cursor: pointer;
-  transition: background-color 0.2s ease;
-
-  &:hover {
-    background-color: $primary-hover;
   }
 }

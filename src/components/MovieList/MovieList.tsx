@@ -13,11 +13,17 @@ const MovieList = ({ movies, variant = 'grid' } : MovieListProps) => {
     : styles.movieList;
 
   return (
-    <div className={listClass}>
-      {movies.map((movie) => (
-        <MovieCard key={movie.id} movie={movie} variant={variant} />
-      ))}
-    </div>
+    <>
+      {movies.length > 0 ? (
+        <div className={listClass}>
+          {movies.map((movie) => (
+            <MovieCard key={movie.id} movie={movie} variant={variant}/>
+          ))}
+        </div>
+      ) : (
+        <div className={styles.noFound}>No movies found</div>
+      )}
+    </>
   );
 };
 
