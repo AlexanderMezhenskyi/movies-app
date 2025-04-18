@@ -6,7 +6,7 @@ import './index.scss';
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <Router basename="/movies-app">
+    <Router basename="/movies-app/">
       <App />
     </Router>
   </StrictMode>,

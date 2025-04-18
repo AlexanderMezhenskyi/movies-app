@@ -5,6 +5,7 @@ import Home from './pages/Home';
 import MovieDetails from './pages/MovieDetails/MovieDetails.tsx';
 import Sidebar from './components/Sidebar';
 import Footer from './components/Footer';
+import { FavoritesProvider } from './context/FavoritesContext';
 import './App.scss';
 
 const App = () => {
@@ -12,7 +13,7 @@ const App = () => {
   const showSidebar: boolean = location.pathname !== '/favorites';
 
   return (
-    <>
+    <FavoritesProvider>
       <Header />
       <div className={showSidebar ? 'main-container' : 'main-container full-width'}>
         {showSidebar && <Sidebar />}
@@ -25,7 +26,7 @@ const App = () => {
         </main>
       </div>
       <Footer />
-    </>
+    </FavoritesProvider>
   );
 };
 

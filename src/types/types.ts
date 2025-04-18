@@ -11,3 +11,7 @@ export interface Movie {
 }
 
 export type MovieCardVariant = 'grid' | 'sidebar';
+
+export type FavoritesAction =
+  | { type: 'ADD'; movie: Movie }
+  | { type: 'REMOVE'; id: string };
