@@ -1,6 +1,6 @@
 {
   "name": "schwarz-home-task-app",
-  "homepage": "https://alexandermezhenskyi.github.io/movies-app",
+  "homepage": "/movies-app/",
   "private": true,
   "version": "0.0.0",
   "type": "module",
