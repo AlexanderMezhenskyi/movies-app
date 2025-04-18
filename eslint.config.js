@@ -23,6 +23,15 @@ export default tseslint.config(
         'warn',
         { allowConstantExport: true },
       ],
+      'semi': ['error', 'always'],
+      'indent': ['error', 2],
     },
+    settings: {
+      'import/resolver': {
+        typescript: {
+            project: './tsconfig.json'
+        }
+      }
+    }
   },
 )

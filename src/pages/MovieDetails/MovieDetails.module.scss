@@ -1,0 +1,127 @@
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.movieCard {
+  display: flex;
+  flex-direction: row;
+  background-color: $neutral;
+  border-radius: $border-radius-lg;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    gap: 0;
+  }
+}
+
+.moviePosterWrapper {
+  max-width: 250px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+
+  @media (max-width: 768px) {
+    margin: 0 auto;
+    padding: 15px;
+  }
+}
+
+.moviePoster {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  border-radius: $border-radius-lg;
+  object-fit: cover;
+  display: block;
+}
+
+.movieInfo {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+
+  @media (max-width: 768px) {
+    padding: 15px;
+  }
+}
+
+.movieTitle {
+  font-size: 28px;
+  font-weight: $font-weight-bold;
+  margin: 0 0 10px;
+  color: $text-color;
+
+  @media (max-width: 768px) {
+    font-size: 22px;
+  }
+}
+
+.movieDescription {
+  font-size: 16px;
+  line-height: 1.6;
+  margin-bottom: 20px;
+
+  @media (max-width: 768px) {
+    font-size: 14px;
+    margin-bottom: 15px;
+  }
+}
+
+.movieInfoWrap {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  p {
+    font-size: 15px;
+    color: $gray-dark;
+    margin: 0;
+
+    @media (max-width: 768px) {
+      font-size: 13px;
+    }
+
+    strong {
+      color: $gray-dark;
+    }
+  }
+}
+
+.actionsWrap {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+
+  @media (max-width: 992px) {
+    flex-direction: column;
+    gap: 10px;
+  }
+}
+
+.button {
+  width: 50%;
+  height: 35px;
+  background-color: $gray-light;
+  color: $text-color;
+  border: none;
+  padding: 8px 14px;
+  border-radius: $border-radius-md;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+
+  @media (max-width: 992px) {
+    width: 100%;
+  }
+
+  &:hover {
+    background-color: $gray;
+  }
+}
