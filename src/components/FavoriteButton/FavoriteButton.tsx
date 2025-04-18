@@ -1,7 +1,13 @@
+import { Movie } from 'src/types/types';
 import { useFavorites } from 'src/hooks/useFavorites';
 import styles from './FavoriteButton.module.scss';
 
-const FavoriteButton = ({ movie, expanded = false }) => {
+interface FavoriteButtonProps {
+  movie: Movie;
+  expanded?: boolean;
+}
+
+const FavoriteButton = ({ movie, expanded = false }: FavoriteButtonProps) => {
   const { favorites, dispatch } = useFavorites();
   const isFavorite = favorites.some(fav => fav.id === movie.id);
 
