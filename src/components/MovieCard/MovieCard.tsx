@@ -1,8 +1,14 @@
 import { Link } from 'react-router-dom';
+import { Movie, MovieCardVariant } from 'src/types/types';
 import { formatDate } from 'src/utils/utils.ts';
 import styles from './MovieCard.module.scss';
 
-const MovieCard = ({ movie, variant = 'grid' }) => {
+interface MovieCardProps {
+  movie: Movie;
+  variant?: MovieCardVariant;
+}
+
+const MovieCard = ({ movie, variant = 'grid' }: MovieCardProps) => {
   const isFavorite: boolean = false;
 
   return (

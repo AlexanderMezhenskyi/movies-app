@@ -1,7 +1,13 @@
 import MovieCard from 'src/components/MovieCard';
+import { Movie, MovieCardVariant } from 'src/types/types';
 import styles from './MovieList.module.scss';
 
-const MovieList = ({ movies, variant = 'grid' }) => {
+interface MovieListProps {
+  movies: Movie[];
+  variant?: MovieCardVariant;
+}
+
+const MovieList = ({ movies, variant = 'grid' } : MovieListProps) => {
   const listClass = variant === 'sidebar'
     ? styles.sidebarList
     : styles.movieList;

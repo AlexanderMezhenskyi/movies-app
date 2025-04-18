@@ -1,17 +1,13 @@
 import { useParams, useNavigate } from 'react-router-dom';
 import { movies } from "src/api/mockData.ts";
-import { Movie } from "src/types/types.ts";
 import { formatDate } from "src/utils/utils.ts";
 import styles from "./MovieDetails.module.scss";
 
-interface MovieDetailsParams {
-  id: string;
-}
-
 const MovieDetails = () => {
-  const { id} = useParams<MovieDetailsParams>();
+  const params = useParams<{ id: string }>();
+  const id = params.id;
   const navigate = useNavigate();
-  const movie: Movie = movies.find((movie) => movie.id === id);
+  const movie = movies.find((movie) => movie.id === id);
   const isFavorite: boolean = false;
 
   if (!movie) {

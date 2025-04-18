@@ -9,3 +9,5 @@ export interface Movie {
   genres: string[],
   rating: number,
 }
+
+export type MovieCardVariant = 'grid' | 'sidebar';
