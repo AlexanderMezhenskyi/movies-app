@@ -1,0 +1,46 @@
+#root {
+  width: 100%;
+  max-width: 1440px;
+  height: 100vh;
+  margin: 0 auto;
+  display: grid;
+  grid-template-rows: auto 1fr 50px;
+  background: $neutral;
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+body {
+  min-width: 320px;
+  min-height: 100vh;
+  display: flex;
+  color: $text-color;
+  background: $neutral;
+  margin: 0;
+  place-items: center;
+}
+
+main {
+  flex: 1;
+  overflow-y: auto;
+  padding: 24px;
+}
+
+.main-container {
+  display: flex;
+  grid-row: 2 / 3;
+  overflow: hidden;
+
+  &.full-width {
+    flex-direction: column;
+  }
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+  }
+}
