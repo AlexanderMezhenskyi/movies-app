@@ -26,7 +26,11 @@ export const fetchMovies = (query: string): Promise<Movie[]> => {
 };
 
 
-export const fetchMovie = (id: string): Promise<Movie> => {
+export const fetchMovie = (id: string | undefined): Promise<Movie> => {
+  if (!id) {
+    return Promise.reject(new Error('Invalid movie id'));
+  }
+
   return new Promise((resolve, reject) => {
     setTimeout(() => {
       try {
