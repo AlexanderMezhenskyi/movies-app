@@ -1,9 +1,19 @@
 import { useFavorites } from 'src/hooks/useFavorites';
+import { usePagination } from 'src/hooks/usePagination';
 import MovieList from 'src/components/MovieList';
+import Pagination from 'src/components/Pagination';
 import styles from "./Favorites.module.scss";
 
 const Favorites = () => {
   const { favorites } = useFavorites();
+
+  const moviesPerPage = 10;
+  const {
+    page,
+    setPage,
+    paginatedItems,
+    totalPages
+  } = usePagination(favorites, moviesPerPage);
 
   return (
     <div>
@@ -11,7 +21,12 @@ const Favorites = () => {
       {favorites.length === 0 ? (
         <div className={styles.noData}>No favorites yet</div>
       ) : (
-        <MovieList movies={favorites} />
+        <>
+          <MovieList movies={paginatedItems} />
+          {favorites.length > moviesPerPage &&
+            <Pagination page={page} totalPages={totalPages} onPageChange={setPage}/>
+          }
+        </>
       )}
     </div>
   );
