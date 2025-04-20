@@ -14,7 +14,7 @@ const MovieCard = ({ movie, variant = 'grid' }: MovieCardProps) => {
     <div className={styles.movieCard}>
       <Link to={`/movie/${movie.id}`} className={styles.moviePosterWrapper}>
         {movie.poster ? (
-          <img src={movie.poster} className={styles.moviePoster} alt={movie.title} />
+          <img src={movie.poster} className={styles.moviePoster} alt={movie.title} loading="lazy" />
         ) : (
           <span>No image</span>
         )}

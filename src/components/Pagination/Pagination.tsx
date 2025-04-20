@@ -1,3 +1,4 @@
+import { memo } from 'react';
 import styles from './Pagination.module.scss';
 
 interface Props {
@@ -21,5 +22,5 @@ const Pagination = ({ page, totalPages, onPageChange }: Props) => {
   );
 };
 
-export default Pagination;
+export default memo(Pagination);
 
