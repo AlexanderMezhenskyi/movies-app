@@ -51,7 +51,7 @@ yarn <script_name>
 ```
 
 | Script      | Description                                                             |
-| ----------- |-------------------------------------------------------------------------|
+| ----------- | ----------------------------------------------------------------------- |
 | `dev`       | Starts the Vite dev server with Hot Module Replacement.                 |
 | `build`     | Bundles the app for production into the `dist` folder.                  |
 | `preview`   | Serves the production build locally using a static file server.         |

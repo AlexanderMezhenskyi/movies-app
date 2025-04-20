@@ -1,4 +1,4 @@
-import { useMemo } from 'react'
+import { memo, useMemo } from 'react'
 import { Movie } from 'src/types/types.ts'
 import styles from './Filters.module.scss'
 
@@ -29,7 +29,7 @@ const Filters = ({
     () => Array.from(new Set(movies.map((m) => m.release_date.slice(0, 4)))).sort(),
     [movies],
   )
-  const ratings = useMemo(() => ['5', '6', '7', '8', '9'], [])
+  const ratings = ['5', '6', '7', '8', '9']
 
   const resetFilters = () => {
     onGenreChange('')
@@ -72,4 +72,4 @@ const Filters = ({
   )
 }
 
-export default Filters
+export default memo(Filters)

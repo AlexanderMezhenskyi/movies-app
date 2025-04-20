@@ -28,8 +28,6 @@ export default tseslint.config(
     rules: {
       ...reactHooks.configs.recommended.rules,
       'react-refresh/only-export-components': ['warn', { allowConstantExport: true }],
-      semi: ['error', 'always'],
-      indent: ['error', 2],
       'prettier/prettier': 'warn',
     },
     settings: {

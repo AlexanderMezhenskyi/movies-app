@@ -1,3 +1,4 @@
+import { memo } from 'react'
 import { Link } from 'react-router-dom'
 import FavoriteButton from 'src/components/FavoriteButton'
 import { Movie, MovieCardVariant } from 'src/types/types'
@@ -35,4 +36,4 @@ const MovieCard = ({ movie, variant = 'grid' }: MovieCardProps) => {
   )
 }
 
-export default MovieCard
+export default memo(MovieCard)
