@@ -4,10 +4,18 @@ import { Movie } from 'src/types/types'
 import { formatDate } from 'src/utils/utils.ts'
 import styles from './MovieDetailsCard.module.scss'
 
+/**
+ * Props for MovieDetailsCard component
+ * @property movie - the movie data to display in detail view
+ */
 type Props = {
   movie: Movie | null | undefined
 }
 
+/**
+ * MovieDetailsCard component
+ * Displays detailed information about a movie.
+ */
 const MovieDetailsCard = ({ movie }: Props) => {
   const navigate = useNavigate()
 

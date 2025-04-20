@@ -2,6 +2,10 @@ import { NavLink } from 'react-router-dom'
 import logo from 'src/assets/logo.png'
 import styles from './Header.module.scss'
 
+/**
+ * Header component
+ * Displays the application logo and navigation links to different routes.
+ */
 const Header = () => {
   return (
     <header className={styles.header}>

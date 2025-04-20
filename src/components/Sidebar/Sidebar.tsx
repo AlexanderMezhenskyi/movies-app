@@ -3,8 +3,15 @@ import { useFavorites } from 'src/hooks/useFavorites'
 import MovieList from 'src/components/MovieList'
 import styles from './Sidebar.module.scss'
 
+/**
+ * Sidebar component
+ * Displays the last 5 favorite movies in a compact list format.
+ * Provides a link to view all favorite movies if any exist.
+ */
 const Sidebar = () => {
   const { favorites } = useFavorites()
+
+  // Get the latest 5 favorite movies (in reverse chronological order)
   const lastFiveMovies = favorites.slice(-5).reverse()
 
   return (

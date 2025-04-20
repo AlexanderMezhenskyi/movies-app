@@ -9,6 +9,10 @@ import Toast from 'src/components/Toast'
 import { Movie } from 'src/types/types'
 import { fetchMovies } from 'src/api/mockApi'
 
+/**
+ * Loads filters from localStorage or returns default values.
+ * @returns {Object} - An object containing the genre, year, and rating filters.
+ */
 const loadFiltersFromLocalStorage = () => {
   try {
     const filters = localStorage.getItem('movieFilters')
@@ -18,13 +22,19 @@ const loadFiltersFromLocalStorage = () => {
   }
 }
 
+/**
+ * Home component
+ * Handles fetching, filtering, and displaying a list of movies with search and pagination functionality.
+ * The component also manages the persistence of filters using localStorage.
+ */
 const Home = () => {
   const [searchValue, setSearchValue] = useState('')
-  const [allMovies, setAllMovies] = useState<Movie[]>([])
-  const [filteredMovies, setFilteredMovies] = useState<Movie[]>([])
+  const [allMovies, setAllMovies] = useState<Movie[]>([]) // All movies fetched from the API
+  const [filteredMovies, setFilteredMovies] = useState<Movie[]>([]) // Filtered movies based on search and selected filters
   const [isLoading, setIsLoading] = useState(false)
   const [error, setError] = useState<string | null>(null)
 
+  // Filters loaded from localStorage
   const filtersFromStorage = loadFiltersFromLocalStorage()
   const [selectedGenre, setSelectedGenre] = useState(filtersFromStorage.genre)
   const [selectedYear, setSelectedYear] = useState(filtersFromStorage.year)
@@ -32,21 +42,27 @@ const Home = () => {
 
   const moviesPerPage = 10
 
+  // Pagination state and functionality using custom hook
   const { page, setPage, paginatedItems, totalPages } = usePagination(filteredMovies, moviesPerPage)
 
+  /**
+   * Memoizes the filtered list of movies based on the search and selected filters.
+   * @returns {Movie[]} - The filtered list of movies.
+   */
   const memoizedFilteredMovies = useMemo(() => {
-    const searchFilteredMovies = allMovies.filter((movie) =>
-      movie.title.toLowerCase().includes(searchValue.toLowerCase()),
+    const searchFilteredMovies = allMovies.filter(
+      (movie) => movie.title.toLowerCase().includes(searchValue.toLowerCase()), // Filter by search input
     )
 
     return searchFilteredMovies.filter((movie) => {
       const genreMatch = selectedGenre ? movie.genres.includes(selectedGenre) : true
       const yearMatch = selectedYear ? movie.release_date.startsWith(selectedYear) : true
       const ratingMatch = selectedRating ? movie.rating >= Number(selectedRating) : true
-      return genreMatch && yearMatch && ratingMatch
+      return genreMatch && yearMatch && ratingMatch // Apply all selected filters
     })
   }, [searchValue, allMovies, selectedGenre, selectedYear, selectedRating])
 
+  // Fetch movies when component mounts
   useEffect(() => {
     setIsLoading(true)
 
@@ -58,10 +74,12 @@ const Home = () => {
       .finally(() => setIsLoading(false))
   }, [])
 
+  // Update filtered movies whenever the memoized filtered list changes
   useEffect(() => {
     setFilteredMovies(memoizedFilteredMovies)
   }, [memoizedFilteredMovies])
 
+  // Save selected filters to localStorage whenever they change
   useEffect(() => {
     localStorage.setItem(
       'movieFilters',
@@ -73,6 +91,7 @@ const Home = () => {
     )
   }, [selectedGenre, selectedYear, selectedRating])
 
+  // Reset error message after 3 seconds
   useEffect(() => {
     if (error) {
       const timer = setTimeout(() => setError(''), 3000)
@@ -80,6 +99,7 @@ const Home = () => {
     }
   }, [error])
 
+  // Handlers for user interactions with search, filters and pagination
   const handleSearchChange = useCallback((value: string) => {
     setSearchValue(value)
   }, [])

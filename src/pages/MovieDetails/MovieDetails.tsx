@@ -6,6 +6,10 @@ import Toast from 'src/components/Toast'
 import { Movie } from 'src/types/types.ts'
 import { fetchMovie } from 'src/api/mockApi'
 
+/**
+ * MovieDetails component
+ * Fetches and displays detailed information about a specific movie based on the movie ID from the URL.
+ */
 const MovieDetails = () => {
   const [movie, setMovie] = useState<Movie | null>()
   const [isLoading, setIsLoading] = useState(false)
@@ -22,15 +26,9 @@ const MovieDetails = () => {
     setIsLoading(true)
 
     fetchMovie(id)
-      .then((data) => {
-        setMovie(data)
-      })
-      .catch((err) => {
-        setError(err.message || 'Something went wrong')
-      })
-      .finally(() => {
-        setIsLoading(false)
-      })
+      .then((data) => setMovie(data))
+      .catch((err) => setError(err.message || 'Something went wrong'))
+      .finally(() => setIsLoading(false))
   }, [id])
 
   useEffect(() => {

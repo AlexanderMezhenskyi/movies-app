@@ -4,6 +4,10 @@ import MovieList from 'src/components/MovieList'
 import Pagination from 'src/components/Pagination'
 import styles from './Favorites.module.scss'
 
+/**
+ * Favorites component displays a list of the user's favorite movies.
+ * It uses pagination to display a limited number of movies per page.
+ */
 const Favorites = () => {
   const { favorites } = useFavorites()
 

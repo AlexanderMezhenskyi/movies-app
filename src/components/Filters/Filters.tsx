@@ -2,6 +2,16 @@ import { memo, useMemo } from 'react'
 import { Movie } from 'src/types/types.ts'
 import styles from './Filters.module.scss'
 
+/**
+ * Props for the Filters component
+ * @property movies - list of all movies to generate filter options
+ * @property selectedGenre - currently selected genre filter
+ * @property selectedYear - currently selected year filter
+ * @property selectedRating - currently selected rating filter
+ * @property onGenreChange - callback function to handle genre filter change
+ * @property onYearChange - callback function to handle year filter change
+ * @property onRatingChange - callback function to handle rating filter change
+ */
 interface FiltersProps {
   movies: Movie[]
   selectedGenre: string
@@ -12,6 +22,10 @@ interface FiltersProps {
   onRatingChange: (value: string) => void
 }
 
+/**
+ * Filters component
+ * Provides dropdowns to filter movies by genre, year, and rating.
+ */
 const Filters = ({
   movies,
   selectedGenre,
@@ -21,16 +35,25 @@ const Filters = ({
   onYearChange,
   onRatingChange,
 }: FiltersProps) => {
+  // Generate unique genres sorted alphabetically
   const genres = useMemo(
     () => Array.from(new Set(movies.flatMap((m) => m.genres))).sort(),
     [movies],
   )
+
+  // Generate unique release years sorted
   const years = useMemo(
     () => Array.from(new Set(movies.map((m) => m.release_date.slice(0, 4)))).sort(),
     [movies],
   )
+
+  // Predefined rating options (5+, 6+, 7+, 8+, 9+)
   const ratings = ['5', '6', '7', '8', '9']
 
+  /**
+   * Resets all filters to their default state
+   * Also clears the filters from localStorage
+   */
   const resetFilters = () => {
     onGenreChange('')
     onYearChange('')
