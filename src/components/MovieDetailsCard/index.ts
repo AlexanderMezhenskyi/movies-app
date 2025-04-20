@@ -1,1 +1,1 @@
-export { default } from './MovieDetailsCard.tsx';
+export { default } from './MovieDetailsCard.tsx'

@@ -1,1 +1,1 @@
-export { default } from './FavoriteButton.tsx';
+export { default } from './FavoriteButton.tsx'

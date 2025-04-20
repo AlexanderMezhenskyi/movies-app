@@ -1,19 +1,14 @@
-import { useFavorites } from 'src/hooks/useFavorites';
-import { usePagination } from 'src/hooks/usePagination';
-import MovieList from 'src/components/MovieList';
-import Pagination from 'src/components/Pagination';
-import styles from "./Favorites.module.scss";
+import { useFavorites } from 'src/hooks/useFavorites'
+import { usePagination } from 'src/hooks/usePagination'
+import MovieList from 'src/components/MovieList'
+import Pagination from 'src/components/Pagination'
+import styles from './Favorites.module.scss'
 
 const Favorites = () => {
-  const { favorites } = useFavorites();
+  const { favorites } = useFavorites()
 
-  const moviesPerPage = 10;
-  const {
-    page,
-    setPage,
-    paginatedItems,
-    totalPages
-  } = usePagination(favorites, moviesPerPage);
+  const moviesPerPage = 10
+  const { page, setPage, paginatedItems, totalPages } = usePagination(favorites, moviesPerPage)
 
   return (
     <div>
@@ -23,13 +18,13 @@ const Favorites = () => {
       ) : (
         <>
           <MovieList movies={paginatedItems} />
-          {favorites.length > moviesPerPage &&
-            <Pagination page={page} totalPages={totalPages} onPageChange={setPage}/>
-          }
+          {favorites.length > moviesPerPage && (
+            <Pagination page={page} totalPages={totalPages} onPageChange={setPage} />
+          )}
         </>
       )}
     </div>
-  );
-};
+  )
+}
 
-export default Favorites;
+export default Favorites

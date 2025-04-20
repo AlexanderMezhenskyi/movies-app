@@ -1,15 +1,11 @@
-import styles from './Toast.module.scss';
+import styles from './Toast.module.scss'
 
 interface ToastProps {
-  message: string;
+  message: string
 }
 
 const Toast = ({ message }: ToastProps) => {
-  return (
-    <div className={styles.toast}>
-      {message}
-    </div>
-  );
-};
+  return <div className={styles.toast}>{message}</div>
+}
 
-export default Toast;
+export default Toast
