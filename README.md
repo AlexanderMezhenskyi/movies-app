@@ -50,12 +50,15 @@ The `package.json` file includes several useful scripts. Run them using:
 yarn <script_name>
 ```
 
-| Script      | Description                                                             |
-| ----------- | ----------------------------------------------------------------------- |
-| `dev`       | Starts the Vite dev server with Hot Module Replacement.                 |
-| `build`     | Bundles the app for production into the `dist` folder.                  |
-| `preview`   | Serves the production build locally using a static file server.         |
-| `lint`      | Runs ESLint on `.ts` and `.tsx` files to ensure code style consistency. |
-| `format`    | Runs Prettier on all project files to enforce code formatting rules.    |
-| `predeploy` | Automatically runs `yarn build` before deploying to GitHub Pages.       |
-| `deploy`    | Deploys the `dist` folder to GitHub Pages using the `gh-pages` package. |
+| Script          | Description                                                                                       |
+| --------------- | ------------------------------------------------------------------------------------------------- |
+| `dev`           | Starts the Vite dev server with Hot Module Replacement.                                           |
+| `build`         | Bundles the app for production into the `dist` folder.                                            |
+| `test`          | Runs Jest to execute all unit tests in the project.                                               |
+| `test:watch`    | Runs Jest in "watch" mode, which automatically re-runs tests when files are changed.              |
+| `test:coverage` | Runs Jest tests and generates a code coverage report, showing which parts of the code are tested. |
+| `preview`       | Serves the production build locally using a static file server.                                   |
+| `lint`          | Runs ESLint on `.ts` and `.tsx` files to ensure code style consistency.                           |
+| `format`        | Runs Prettier on all project files to enforce code formatting rules.                              |
+| `predeploy`     | Automatically runs `yarn build` before deploying to GitHub Pages.                                 |
+| `deploy`        | Deploys the `dist` folder to GitHub Pages using the `gh-pages` package.                           |
