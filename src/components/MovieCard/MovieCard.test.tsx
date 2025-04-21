@@ -2,7 +2,7 @@ import '@testing-library/jest-dom'
 import { render, screen } from '@testing-library/react'
 import { BrowserRouter as Router } from 'react-router-dom'
 import MovieCard from 'src/components/MovieCard'
-import { Movie } from 'src/types/types'
+import { Movie, MovieCardVariant } from 'src/types/types'
 import { formatDate } from 'src/utils/utils'
 
 jest.mock('src/components/FavoriteButton', () => () => <button>Favorite</button>)
@@ -19,7 +19,7 @@ const mockMovie: Movie = {
   rating: 8.5,
 }
 
-const setup = (movie: Movie, variant = 'grid') =>
+const setup = (movie: Movie, variant: MovieCardVariant) =>
   render(
     <Router>
       <MovieCard movie={movie} variant={variant} />
@@ -28,7 +28,7 @@ const setup = (movie: Movie, variant = 'grid') =>
 
 describe('MovieCard', () => {
   it('renders movie poster with alt text', () => {
-    setup(mockMovie)
+    setup(mockMovie, 'grid')
     const img = screen.getByAltText(mockMovie.title) as HTMLImageElement
     expect(img).toBeInTheDocument()
     expect(img.src).toBe(mockMovie.poster)
@@ -36,12 +36,12 @@ describe('MovieCard', () => {
 
   it('renders fallback text when poster is missing', () => {
     const movieWithoutPoster = { ...mockMovie, poster: '' }
-    setup(movieWithoutPoster)
+    setup(movieWithoutPoster, 'grid')
     expect(screen.getByText('No image')).toBeInTheDocument()
   })
 
   it('renders movie title with link', () => {
-    setup(mockMovie)
+    setup(mockMovie, 'grid')
     const titleLink = screen.getByText(mockMovie.title)
     expect(titleLink).toBeInTheDocument()
     expect(titleLink.closest('a')).toHaveAttribute('href', `/movie/${mockMovie.id}`)
@@ -60,7 +60,7 @@ describe('MovieCard', () => {
   })
 
   it('renders favorite button', () => {
-    setup(mockMovie)
+    setup(mockMovie, 'grid')
     expect(screen.getByText('Favorite')).toBeInTheDocument()
   })
 })

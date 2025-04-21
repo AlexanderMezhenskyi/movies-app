@@ -116,9 +116,12 @@ const Home = () => {
     setSelectedRating(value)
   }, [])
 
-  const handlePageChangeChange = useCallback((value: number) => {
-    setPage(value)
-  }, [])
+  const handlePageChangeChange = useCallback(
+    (value: number) => {
+      setPage(value)
+    },
+    [setPage],
+  )
 
   return (
     <div>

@@ -16,10 +16,8 @@ const mockMovie: Movie = {
   rating: 8.5,
 }
 
-let dispatch: jest.Mock
-let favorites: Movie[]
-
-const renderWithProvider = (isFavorite: boolean, expanded = false, dispatch = jest.fn()) => {
+const renderWithProvider = (isFavorite: boolean, expanded = false) => {
+  const dispatch = jest.fn()
   const favorites: Movie[] = isFavorite ? [mockMovie] : []
 
   render(
@@ -30,11 +28,6 @@ const renderWithProvider = (isFavorite: boolean, expanded = false, dispatch = je
 
   return { dispatch }
 }
-
-beforeEach(() => {
-  dispatch = jest.fn()
-  favorites = []
-})
 
 describe('FavoriteButton', () => {
   it('renders "Add" when movie is not in favorites', () => {

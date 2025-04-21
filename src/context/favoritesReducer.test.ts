@@ -1,5 +1,6 @@
 import '@testing-library/jest-dom'
 import favoritesReducer from 'src/context/favoritesReducer'
+import { FavoritesAction } from 'src/types/types.ts'
 import { Movie } from 'src/types/types'
 
 const mockMovie: Movie = {
@@ -16,19 +17,19 @@ const mockMovie: Movie = {
 
 describe('favoritesReducer', () => {
   it('should add a movie to favorites', () => {
-    const action = { type: 'ADD', movie: mockMovie }
+    const action: FavoritesAction = { type: 'ADD', movie: mockMovie }
     const state = favoritesReducer([], action)
     expect(state).toEqual([mockMovie])
   })
 
   it('should remove a movie from favorites', () => {
-    const action = { type: 'REMOVE', id: '1' }
+    const action: FavoritesAction = { type: 'REMOVE', id: '1' }
     const state = favoritesReducer([mockMovie], action)
     expect(state).toEqual([])
   })
 
   it('should return the current state for unknown action', () => {
-    const action = { type: 'UNKNOWN' } as any
+    const action: FavoritesAction = { type: 'UNKNOWN' }
     const state = favoritesReducer([mockMovie], action)
     expect(state).toEqual([mockMovie])
   })

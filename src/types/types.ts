@@ -22,4 +22,7 @@ export type MovieCardVariant = 'grid' | 'sidebar'
  * FavoritesAction type represents actions that can be dispatched to modify the user's favorite movies.
  * The actions are either adding a movie to favorites or removing it based on the action type.
  */
-export type FavoritesAction = { type: 'ADD'; movie: Movie } | { type: 'REMOVE'; id: string }
+export type FavoritesAction =
+  | { type: 'ADD'; movie: Movie }
+  | { type: 'REMOVE'; id: string }
+  | { type: 'UNKNOWN' }
